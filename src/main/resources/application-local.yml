@@ -1,29 +1,24 @@
 spring:
   application:
     name: mscloudgateway
-  profiles:
-    active: local # Pra utilizar o application-local.
-
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
-
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://${KEYCLOAK_SERVER}:${KEYCLOAK_PORT}/realms/mskleberlzrealm
+          issuer-uri: http://localhost:8081/realms/mskleberlzrealm
 
 server:
   port: 8080
-  
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://kleberlzms-eureka-user:erlseeakrer-sbzluk-ume@${EUREKA_SERVER}:8762/eureka
-
+      defaultZone: http://kleberlzms-eureka-user:erlseeakrer-sbzluk-ume@localhost:8762/eureka
